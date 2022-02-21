@@ -238,7 +238,9 @@ Bu yüzden daha fazla puan alanı girmek temel bir yaklaşım olur. Girdiğimizd
 
 <img src='images/13.png' />
 
+Genel bakışla işleyişi görmek için bir gif
 
+<img src='images/solver.gif' />
 
 
 
