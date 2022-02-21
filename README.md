@@ -262,7 +262,7 @@ Artık çok büyük bir bilgiye ulaştık. Şimdi konum bilgilerini ve olmayan k
 
 <img src='images/12.png' />
 
-Burada karşımıza 2 seçenek geliyor. İzlediğimiz yolla alabileceğimiz tüm bilgileri aldık ve karşımıza bu sonuç geldi. Bu gibi 2 sonuç olan durumlarda malesef iş bizim tahminimize, daha doğru seçimimize dayanıyor. Başka bir hakkımız olsa tutturabiliriz tabi ki fakat kısıtlı bilgi ve deneme altında bugünün kelimesinde buradan öteye geçemiyoruz.
+Burada karşımıza 2 seçenek geliyor. İzlediğimiz yolla alabileceğimiz tüm bilgileri aldık ve karşımıza bu sonuç geldi. Bu gibi 2 sonuç olan durumlarda malesef iş bizim tahminimize, daha doğrusu seçimimize dayanıyor. Başka bir hakkımız olsa tutturabiliriz tabi ki fakat kısıtlı bilgi ve deneme altında bugünün kelimesinde buradan öteye geçemiyoruz.
 
 Bu yüzden daha fazla puan alan kelimeyi girmek temel bir yaklaşım olur. Kelimemizi girdiğimizde doğru tahmini görüyoruz.
 
