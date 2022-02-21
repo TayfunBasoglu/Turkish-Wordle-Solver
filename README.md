@@ -1,3 +1,5 @@
+# Turkish Wordle Solver
+
 Wordle temelde bir kelime bulmaca oyunudur. Her gün bize 5 harfli yeni bir kelime veriliyor ve bu kelimeyi 6 deneme yaparak bulmamızı istiyor. Denemelerimiz rastgele harfler olamıyor, rastgele içerikler almıyor, gerçekten olan Türkçe kelimeler yazmamız gerekiyor. Ayrıca yazdığımız bu harflerin konumlarına ve doğruluklarına göre bize bilgiler ve çıkarımlar yapmamızı bekliyor.
 
 <img src='images/1.png' />
@@ -26,6 +28,7 @@ word_list = set(word_list)
 
 Bunun için kelimelerdeki harf frekanslarına bakmayı düşündüm. Her kelimedeki harfleri ayırıp ardından bu harflerin toplam kelimelerde tekrar etme sayısına bakarak her kelimeye puan vereceğim. Böylece göre en çok puanı alan kelimeyi kullanacağım. Tabi 6 deneme olduğu için 3 hatta 4 hakkı denemeye ayırmak da mümkün. Çünkü önce farklılıkları görüp bilgi çıkarıp sonrasında tahmin yaparsak doğruluk ihtimalimizi arttırırız.
 
+
 ~~~~python
 
 letters = ['a', 'b', 'c', 'ç', 'd', 'e', 'f', 'g', 'ğ', 'h', 'ı', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'ö', 'p', 'r', 's', 'ş','t', 'u', 'ü', 'v', 'y', 'z']
@@ -43,7 +46,9 @@ print(a)
 
 ~~~~
 
+
 <img src='images/3.png' />
+
 
 Her bir kolonu kendi içerisinde toplayarak değerlendiriyoruz böylece her bir harfin frekans toplamını göreceğiz. 
 
@@ -62,11 +67,18 @@ print(o_frequency)
 
 ~~~~
 
+
 <img src='images/4.png' />
 
-En alttan yukarı doğru bu harflere (1-29)/10 puan vermeyi düşündüm. Böylece bir kelimede geçen "önemli" puana sahip harflere göre o kelimeye puan verebileceğiz.
 
-Kelimelere puan verirken tekrar eden harflerden kaçınmalıyız. Örneğin "ARABA" içerisinde 3 tane "A" var. Bu kelime yüksek bir puan alacak fakat bize vereceği bilgi çok az çünkü 3 kere "A" tekrar ediyor. Bize gereken en yüksek puana sahip ve farklı harflerden oluşan kelimeler.
+En alttan yukarı doğru bu harflere (1-29)/10 puan vermeyi düşündüm. 
+
+Böylece bir kelimede geçen "önemli" puana sahip harflere göre o kelimeye puan verebileceğiz.
+
+Kelimelere puan verirken tekrar eden harflerden kaçınmalıyız. 
+
+Örneğin "ARABA" içerisinde 3 tane "A" var. Bu kelime yüksek bir puan alacak fakat bize vereceği bilgi çok az çünkü 3 kere "A" tekrar ediyor. Bize gereken en yüksek puana sahip ve farklı harflerden oluşan kelimeler.
+
 
 ~~~~python
 
@@ -97,11 +109,15 @@ print(a)
 
 ~~~~
 
+
+
 <img src='images/5.png' />
+
 
 Burada görüldüğü gibi en yüksek puanı alan kelime "ERİKA". Bu kelime bize sorulan kelimenin ne olup olamayacağına dair en fazla bilgiyi verecek olan kelime olarak görülüyor.
 
 *erika : isim, bitki bilimi : Süpürge otu*
+
 
 Fakat tam olarak yeterli değil. Biz bu kelimeyi girdiğimizde kodun "tahmin" kısmı bize bulunan bilgilere sahip kelimeleri önerecek. Bu yüzden öncelikle elimizde olabildiğince çok bilgi olmasını istiyoruz ki tahmin ihtimalimiz artsın. Benzerlik içerisinde tahminlere kaybolmadan önce farklılıklarla bilgi toplamaya odaklanıyoruz.
 
@@ -119,7 +135,9 @@ for i in contents["words"]:
 
 *tonlu : sıfat, dil bilgisi : Yumuşak*
 
+
 Şimdi aynı şeyi tekrar yapıyoruz alabildiğimiz kadar farklılık bilgisi istiyoruz.
+
 
 ~~~~python
 
@@ -130,9 +148,11 @@ for i in contents["words"]:
 
 ~~~~
 
+
 <img src='images/7.png' />
 
 *süyüm : isim, halk ağzında : İğneye geçirilen bir sap iplik.*
+
 
 Görüldüğü gibi "SÜYÜM" kelimesinde "Ü" 2 kere tekrar ediyor. Bunu bir sınır olarak alıyoruz çünkü artık harfler tekrar ediyor ve bir sonrakinde zaten tek seçenek olarak hıfız geliyor. Artık tekrar artıyor. Bu yüzden gireceğimiz temel 3 bilgi kelimesi oluşuyor.
 
@@ -204,11 +224,15 @@ while True:
 
 Artık 21 Şubat 2022 tarihi ile deneme yapıyoruz. İlk olarak direkt 3 kelimemizi giriyoruz.
 
+
 <img src='images/8.png' />
+
 
 Burada içerisinde olan ve olmayan harfleri yardımcımıza giriyoruz. Her bilgi girildiğinde bize olası en iyi 10 sonucu veriyor. Elimizdeki tüm bilgileri giriyoruz.
 
+
 <img src='images/9.png' />
+
 
 Elimizde daha fazla bilgi yok bu yüzden en iyi tahmini yazıyoruz ve tekrar gelen bilgileri giriyoruz. Kod değişiklikleri tuttuğu için aynı harfleri tekrar girmemize gerek yok. Eğer yeni bilgi yoksa enter diyerek geçebiliriz. 
 
@@ -222,13 +246,19 @@ Bu durumda yeni en iyi kelimemiz April oluyor.
 
 *April : isim, halk ağzında, İngilizce april : Nisan* İngilizce bir kelime ama hem TDK'da hem de wordle listesinde mevcut.
 
+
+
 <img src='images/10.png' />
+
 
 Tekrar kelimeyi giriyoruz ve bilgilere bakıyoruz.
 
+
 <img src='images/11.png' />
 
+
 Artık çok büyük bir bilgiye ulaştık. Şimdi konum bilgilerini ve olmayan kelime bilgisini giriyoruz. (a'yı girmiştik daha önce)
+
 
 <img src='images/12.png' />
 
@@ -236,9 +266,12 @@ Burada karşımıza 2 seçenek geliyor. İzlediğimiz yolla alabileceğimiz tüm
 
 Bu yüzden daha fazla puan alanı girmek temel bir yaklaşım olur. Girdiğimizde doğru tahmini görüyoruz.
 
+
 <img src='images/13.png' />
 
+
 Genel bakışla işleyişi görmek için bir gif
+
 
 <img src='images/solver.gif' />
 
