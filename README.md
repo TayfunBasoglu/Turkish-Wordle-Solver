@@ -276,4 +276,6 @@ Bu yüzden daha fazla puan alan kelimeyi girmek temel bir yaklaşım olur. Kelim
 
 <img src='images/solver.gif' />
 
+<img src='images/solver2.gif' />
+
 https://medium.com/@tayfunbasoglu/turkish-wordle-solver-f0ef30640809
