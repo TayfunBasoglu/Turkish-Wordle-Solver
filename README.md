@@ -163,6 +163,7 @@ Bu kelimeleri girdikten sonra bize 3 kelime hakkı kalıyor. Bilgileri kullanara
 
 Her gelen bilgiyi girdiğimiz basit ve regex’ler ile çalışan bir betiğe gönderiyoruz. While ile döngüye alıyoruz ve her girilen bilgide ana yığını arındırıyoruz. Puanlara göre sıralanmış kelimeler arasından en iyi olasılıklı kelime karşımıza geliyor. Girebileceğimiz en iyi seçenek bu kelime olacak. Tüm bilgileri girdikten sonra gelen en iyi seçeneği oynumuza giriyoruz ve bunu devam ettiriyoruz. Bu şekilde kelimemizi bulmaya çalışıyoruz.
 
+Eğer bir harf hem kelimenin içinde hem de kelimenin içinde değil görünüyorsa 2 tane olmadığı anlamına geliyor onu içerisinde yok olarak girmemek gerekir.
 
 ~~~~python
 
